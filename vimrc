@@ -1,7 +1,7 @@
 "=========================================================================
 " DesCRiption: 适合自己使用的vimrc文件，for Linux/Windows, GUI/Console
 "
-" Last Change: 2010年08月02日 15时13分 
+" Last Change: 2014年07月04日 07时45分 
 "
 " Version: 1.80.1
 "
