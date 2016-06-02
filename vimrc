@@ -13,8 +13,10 @@ colorscheme peachpuff " 设定配色方案
 set number " 显示行号
 set mouse=a "使用鼠标移动光标
 set cursorline " 突出显示当前行
+hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
 set ruler " 打开状态栏标尺
 set shiftwidth=2 " 设定 << 和 >> 命令移动时的宽度为 2
+set expandtab " 使用空格代替tab
 set softtabstop=2 " 使得按退格键时可以一次删掉 2 个空格
 set tabstop=2 " 设定 tab 长度为 2
 set nobackup " 覆盖文件时不备份
@@ -22,7 +24,7 @@ set autochdir " 自动切换当前目录为当前文件所在的目录
 filetype plugin indent on " 开启插件
 set backupcopy=yes " 设置备份时的行为为覆盖
 set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
-set nowrapscan " 禁止在搜索到文件两端时重新搜索
+" set nowrapscan " 禁止在搜索到文件两端时重新搜索
 set incsearch " 输入搜索内容时就显示搜索结果
 set hlsearch " 搜索时高亮显示被找到的文本
 set noerrorbells " 关闭错误信息响铃
@@ -41,13 +43,18 @@ set cmdheight=1 " 设定命令行的行数为 1
 set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
 set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
 " 设置在状态行显示的信息
-set foldenable " 开始折叠
-set foldmethod=syntax " 设置语法折叠
-set foldcolumn=0 " 设置折叠区域的宽度
-setlocal foldlevel=1 " 设置折叠层数为
+" set foldenable " 开始折叠
+" set foldmethod=syntax " 设置语法折叠
+" set foldcolumn=0 " 设置折叠区域的宽度
+" setlocal foldlevel=1 " 设置折叠层数为
 " set foldclose=all " 设置为自动关闭折叠 
 " nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " 用空格键来开关折叠
+
+map # #N
+
+"设置mapleader
+let mapleader = ","
 
 
 " return OS type, eg: windows, or linux, mac, et.st..
@@ -283,3 +290,18 @@ smap <silent> <C-e> <Plug>(neocomplcache_snippets_expand)
 "-----------------------------------------------------------------
 " plugin – a.vim
 "-----------------------------------------------------------------
+
+"-----------------------------------------------------------------
+" plugin – tagbar
+"-----------------------------------------------------------------
+noremap <silent> <Leader>y :TagbarToggle<CR>
+nmap <Leader>tb :TagbarToggle<CR>
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_width=30
+" autocmd FileType cpp,c,h,hpp,cc,cxx nested :TagbarOpen
+
+"-----------------------------------------------------------------
+" plugin – Easymotion
+"-----------------------------------------------------------------
+let g:EasyMotion_leader_key = '<leader>'
+
